@@ -1,6 +1,6 @@
 # Rashi Chauhan's Portfolio Website
 
-Welcome to my portfolio website! This website serves as a showcase of my work, skills, and experience in [Your Field/Industry].
+Welcome to my portfolio website! This website serves as a showcase of my work, skills, and experience in AI/ML.
 
 ## Table of Contents
 - [About Me](#about-me)
