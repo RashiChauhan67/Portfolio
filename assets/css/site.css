@@ -323,7 +323,9 @@ a.card { display: block; }
 .doc h2 { font: 700 15px var(--font-head); letter-spacing: 0.1em; text-transform: uppercase; color: var(--a1); margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
 .doc .contact-line { margin-bottom: 4px; }
 .doc .contact-line { color: var(--muted); font-size: 15px; margin: 4px 0 0; }
-.doc .contact-line a { color: var(--a1); }
+.doc .contact-line a { color: var(--a1); text-decoration: underline; text-underline-offset: 2px; }
+.doc li a { color: var(--a1); text-decoration: underline; text-underline-offset: 2px; }
+.nw { white-space: nowrap; }
 .doc h3 { margin: 18px 0 2px; font: 600 16px var(--font-head); }
 .doc h3 .when { float: right; font: 400 13px var(--font-mono); color: var(--faint); }
 .doc .org { color: var(--muted); font-size: 14.5px; margin: 0 0 6px; }
@@ -357,11 +359,12 @@ footer .fine { margin-top: 22px; font: 400 12.5px var(--font-mono); }
   .rlayout { display: block !important; }
   section { padding: 0 !important; }
   .doc { background: none !important; border: 0 !important; padding: 0 !important; border-radius: 0 !important; }
-  .doc h2 { color: #111 !important; border-bottom: 1px solid #111 !important; font-size: 11pt !important; margin: 14px 0 6px !important; break-after: avoid; }
+  .doc h2, .doc h3, .doc dl.skills dt, .doc .tagline { font-family: Arial, Helvetica, sans-serif !important; }
+  .doc h2 { letter-spacing: 0.04em !important; color: #111 !important; border-bottom: 1px solid #111 !important; font-size: 11pt !important; margin: 14px 0 6px !important; break-after: avoid; }
   .doc h3 { font-size: 10.5pt !important; margin: 8px 0 1px !important; break-after: avoid; }
   .doc h3 .when { font-family: Arial, Helvetica, sans-serif !important; color: #111 !important; }
   .doc ul, .doc p, .doc .org, .doc dl.skills dd, .doc .contact-line { color: #111 !important; font-size: 10pt !important; }
-  .doc a { color: #111 !important; text-decoration: none !important; }
+  .doc a, .doc .contact-line a, .doc li a { color: #1a4fa0 !important; text-decoration: underline !important; }
   .doc li { break-inside: avoid; }
   .doc .name { font: 700 20pt Arial, Helvetica, sans-serif !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
