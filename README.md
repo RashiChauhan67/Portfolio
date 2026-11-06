@@ -1,13 +1,7 @@
-# Rashi Chauhan's Portfolio Website
+# Rashi Chauhan | Portfolio
 
-Welcome to my portfolio website! This website serves as a showcase of my work, skills, and experience in AI/ML.
+Personal portfolio: research, projects and skills in AI/ML.
 
-## Table of Contents
-- [About Me](#about-me)
-- [Projects](#projects)
-- [Publications](#publications)
-- [Skills](#skills)
-- [Contact Me](#contact-me)
+Live site: https://rashichauhan67.github.io/Portfolio/
 
-
-
+A single static page (`index.html`) with inline CSS and no build step or external dependencies.

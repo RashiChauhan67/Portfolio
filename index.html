@@ -1,362 +1,284 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Rashi Chauhan Portfolio Website</title>
-
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/unicons.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rashi Chauhan | AI/ML Engineer</title>
+<meta name="description" content="Rashi Chauhan, AI/ML Engineer and Technical Consultant at HPE. Production ML, agentic AI, computer vision and published research.">
+<meta property="og:title" content="Rashi Chauhan | AI/ML Engineer">
+<meta property="og:description" content="Production ML, agentic AI, computer vision and published research.">
+<meta property="og:type" content="website">
+<style>
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --muted: #5d6573;
+  --line: #e3e0da;
+  --accent: #3f5f8a;
+  --accent-soft: #e8eef6;
+  --focus: #1d4ed8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171c;
+    --surface: #1b1f26;
+    --text: #e8eaee;
+    --muted: #a3abb8;
+    --line: #2c323c;
+    --accent: #8fb0dc;
+    --accent-soft: #232b38;
+    --focus: #8fb0dc;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171c;
+  --surface: #1b1f26;
+  --text: #e8eaee;
+  --muted: #a3abb8;
+  --line: #2c323c;
+  --accent: #8fb0dc;
+  --accent-soft: #232b38;
+  --focus: #8fb0dc;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+header.top {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; }
+.brand { font-weight: 700; color: var(--text); white-space: nowrap; }
+nav { display: flex; gap: 4px 16px; flex-wrap: wrap; align-items: center; font-size: 14px; }
+nav a { color: var(--muted); }
+nav a:hover { color: var(--text); text-decoration: none; }
+#theme {
+  background: none; border: 1px solid var(--line); color: var(--muted);
+  border-radius: 6px; padding: 2px 8px; font: inherit; font-size: 13px; cursor: pointer;
+}
+.hero { padding: 64px 0 40px; }
+.hero h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.15; margin: 0 0 8px; }
+.hero .role { font-size: 20px; color: var(--accent); margin: 0 0 16px; font-weight: 600; }
+.hero p.lead { max-width: 62ch; color: var(--muted); margin: 0 0 24px; font-size: 18px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-block; padding: 8px 16px; border-radius: 8px; font-size: 15px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--text);
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.primary { color: #14171c; } }
+:root[data-theme="dark"] .btn.primary { color: #14171c; }
+.btn:hover { text-decoration: none; filter: brightness(1.05); }
+section { padding: 36px 0; border-top: 1px solid var(--line); }
+section h2 { font-size: 24px; margin: 0 0 20px; }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.card h3 { margin: 0; font-size: 17px; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.tag { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.badge { font-size: 12px; color: var(--muted); }
+ul.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+ul.plain li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+ul.plain .title { font-weight: 600; }
+ul.plain .meta { color: var(--muted); font-size: 14px; }
+.skills { display: grid; gap: 12px; }
+.skills div.row { display: grid; grid-template-columns: 170px 1fr; gap: 8px 16px; align-items: baseline; }
+.skills .label { font-weight: 600; }
+.skills .items { color: var(--muted); }
+@media (max-width: 600px) { .skills div.row { grid-template-columns: 1fr; gap: 2px; } }
+.timeline { display: grid; gap: 14px; }
+.timeline .item { display: grid; grid-template-columns: 110px 1fr; gap: 8px 16px; }
+.timeline .when { color: var(--muted); font-size: 14px; }
+.timeline .what { font-weight: 600; }
+.timeline .where { color: var(--muted); }
+@media (max-width: 600px) { .timeline .item { grid-template-columns: 1fr; gap: 0; } }
+footer { padding: 28px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+</style>
 </head>
-
-  <!-- MAIN STYLE -->
-  <link rel="stylesheet" href="css/tooplate-style.css">
-
-
-</head>
-
 <body>
 
-  <!-- MENU -->
-  <nav class="navbar navbar-expand-sm navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Rashi</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Rashi Chauhan</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+      <button id="theme" type="button" aria-label="Toggle colour theme">Theme</button>
+    </nav>
+  </div>
+</header>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<main id="top">
+  <div class="wrap">
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="#publication" class="nav-link"><span data-hover="Publications">Publications</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav ml-lg-auto">
-          <div class="ml-lg-4">
-            <div class="color-mode d-lg-flex justify-content-center align-items-center">
-              <i class="color-mode-icon"></i>
-              Color mode
-            </div>
-          </div>
-        </ul>
+    <div class="hero">
+      <h1>Rashi Chauhan</h1>
+      <p class="role">AI/ML Engineer · Technical Consultant at HPE</p>
+      <p class="lead">I build machine learning systems that run in production and do research in computer vision, deep learning and generative AI.</p>
+      <div class="links">
+        <a class="btn primary" href="#research">Read my research</a>
+        <a class="btn" href="https://github.com/RashiChauhan67">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/rashi-chauhan-67rc">LinkedIn</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=5aJitiMAAAAJ&amp;hl=en">Google Scholar</a>
       </div>
     </div>
-  </nav>
 
-  <!-- ABOUT -->
-  <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-    <div class="container">
-      <div class="row">
+    <section id="about">
+      <h2>About</h2>
+      <p>I'm an AI/ML engineer and Technical Consultant at HPE. My work covers production ML, data engineering, automation, forecasting and applied AI systems. Alongside industry work, I do research in computer vision, deep learning and generative AI, published in IEEE, Elsevier and Springer venues.</p>
+      <p>My research focuses on lightweight attention-based networks for medical, agricultural and remote-sensing images. My applied work includes hybrid retrieval (RAG) over long reports and ML pipelines for data platforms.</p>
+    </section>
 
-        <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
-          <div class="about-text">
-            <!-- <small class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small> -->
-            <h1 class="animated animated-text">
-              <span class="mr-2" style="font-size: 36px;">Hey, I'm</span>
-              <div class="animated-info">
-                <span class="animated-item">Rashi Chauhan</span>
-                <span class="animated-item">3rd Year Student</span>
-                <span class="animated-item">A Machine Learning Enthusiast</span>
-              </div>
+    <section id="research">
+      <h2>Selected research</h2>
+      <ul class="plain">
+        <li>
+          <div class="title">Fused multi-level attention features with a constraint fusion network for colorectal tissue classification using histopathological images</div>
+          <div class="meta">Computers and Electrical Engineering, 2025 · <a href="https://github.com/RashiChauhan67/FMANet">Code (FMANet)</a></div>
+        </li>
+        <li>
+          <div class="title">Generative AI for image classification: a comprehensive review and future directions</div>
+          <div class="meta">Procedia Computer Science, 2025</div>
+        </li>
+        <li>
+          <div class="title">Reducing the Carbon Footprint of Data Centers: CNN-Transformer-Based Workload Prediction for Green Cloud Computing</div>
+          <div class="meta">2025</div>
+        </li>
+        <li>
+          <div class="title">Towards Smart Waste Sorting: Lightweight CNN with Attention Mechanisms for Enhanced Classification</div>
+          <div class="meta">2025</div>
+        </li>
+        <li>
+          <div class="title">Cloud-Based SaaS Solutions for Predictive Sales Forecasting in E-Commerce</div>
+          <div class="meta">WCONF, 2025</div>
+        </li>
+        <li>
+          <div class="title">Attention based deep neural network for classification of kidney ailments using CT images</div>
+          <div class="meta">ICCCNT, 2024 · <a href="https://github.com/RashiChauhan67/kidney-ct-attention-cnn">Code</a></div>
+        </li>
+        <li>
+          <div class="title">Plant disease identification using a dual self-attention modified residual-inception network</div>
+          <div class="meta">ICUMT, 2023 · <a href="https://github.com/RashiChauhan67/DARINet">Code (DARINet)</a></div>
+        </li>
+      </ul>
+      <p style="margin-top:16px"><a href="https://scholar.google.com/citations?user=5aJitiMAAAAJ&amp;hl=en">All publications on Google Scholar →</a></p>
+    </section>
 
-            </h1>
-
-            <p style="padding-top: 24px;">Embarking on the journey of coding, I thrive on the thrill of transforming lines of logic into digital marvels, 
-              where every keystroke ignites a world of endless possibilities.</p>
-
-            <div class="custom-btn-group mt-4">
-              <a href="https://drive.google.com/drive/u/1/my-drive" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
-              <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Contact</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-5 col-md-6 col-6">
-          <div class="about-image svg">
-            <img src="images/undraw/undraw_programmer_re_owql.svg" class="img-fluid" alt="svg image">
-          </div>
-        </div>
-
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3><a href="https://github.com/RashiChauhan67/esg-hybrid-rag">esg-hybrid-rag</a></h3>
+          <p>Hybrid dense + BM25 retrieval with Reciprocal Rank Fusion for question answering over ESG PDF reports.</p>
+          <div class="tags"><span class="tag">RAG</span><span class="tag">BM25</span><span class="tag">Sentence-Transformers</span></div>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/RashiChauhan67/wildfire-spread-prediction">wildfire-spread-prediction</a></h3>
+          <p>Next-day wildfire spread prediction from remote-sensing, weather and terrain data with an Attention U-Net.</p>
+          <div class="tags"><span class="tag">TensorFlow</span><span class="tag">Segmentation</span><span class="tag">Remote sensing</span></div>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/RashiChauhan67/wbc-multistream-cnn">wbc-multistream-cnn</a></h3>
+          <p>Three-stream CNN with gated feature fusion for white-blood-cell classification.</p>
+          <div class="tags"><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Medical imaging</span></div>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/RashiChauhan67/aerial-vehicle-detection">aerial-vehicle-detection</a></h3>
+          <p>YOLOv8 vehicle detection and classification in aerial drone imagery (VAID).</p>
+          <div class="tags"><span class="tag">Ultralytics YOLO</span><span class="tag">Object detection</span></div>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/RashiChauhan67/carotid-ultrasound-segmentation">carotid-ultrasound-segmentation</a></h3>
+          <p>Lightweight attention network for carotid-artery segmentation in ultrasound images, with a leakage-free, scan-aware pipeline.</p>
+          <div class="tags"><span class="tag">TensorFlow</span><span class="tag">Segmentation</span><span class="tag">Ultrasound</span></div>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/RashiChauhan67/Maternal-Health-Risk-Predictor">Maternal-Health-Risk-Predictor</a></h3>
+          <p>Machine-learning web app that predicts maternal health risk levels from clinical inputs.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Web app</span></div>
+        </article>
       </div>
-    </div>
-  </section>
+      <p style="margin-top:16px"><a href="https://github.com/RashiChauhan67?tab=repositories">More on GitHub →</a></p>
+    </section>
 
-  <!-- PROJECTS -->
-  <section class="project py-5" id="project">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 mx-auto">
-          <h2 class="text-center" style="padding-bottom: 40px;">My Projects</h2>
-        </div>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="row"><div class="label">Languages and data</div><div class="items">Python, SQL, JavaScript, TypeScript, C++, C, Pandas, NumPy</div></div>
+        <div class="row"><div class="label">ML and vision</div><div class="items">TensorFlow, Keras, PyTorch, scikit-learn, OpenCV, Ultralytics YOLO, Albumentations</div></div>
+        <div class="row"><div class="label">Methods</div><div class="items">CNNs, attention mechanisms, U-Net segmentation, object detection, Grad-CAM, LIME</div></div>
+        <div class="row"><div class="label">Generative and agentic AI</div><div class="items">LangChain, LangGraph, Gemini API, ChromaDB, RAG, hybrid retrieval, Sentence-Transformers, Ollama, MCP</div></div>
+        <div class="row"><div class="label">Data engineering</div><div class="items">Vertica, Cloudian, ETL, Power BI, Plotly, Matplotlib, Seaborn</div></div>
+        <div class="row"><div class="label">Backend and deployment</div><div class="items">Docker, Docker Compose, FastAPI, REST APIs, PostgreSQL, Next.js</div></div>
+        <div class="row"><div class="label">Tools</div><div class="items">Git, GitHub Actions, pytest, Jupyter, Kaggle, Google Colab</div></div>
       </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="project-box">
-            <!-- <div class="project-info">
-                          <img src="images/project/P1.PNG" class="img-fluid" alt="project image">
-                      </div> -->
-            <div class="project-info">
-              <h3><span>Health Status Prediction using Arduino Uno Dataset</span></h3>
-              <p>Arduino Uno, Python, HTML, CSS, Streamlit</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="project-box">
-            <div class="project-text">
-              <div class="project-info">
-                <h3><span>Depression Detection using Deep Learning</span></h3>
-                <p>CNN, Python, Google Colab</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    </section>
 
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="project-box">
-            <div class="project-text">
-              <div class="project-info">
-                <h3><span>Data Science to Analyze Customer Feedback</span></h3>
-                <p>Web Scraping, Natural Language Processing (NLP), Data Visualization</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="project-box">
-            <div class="project-info">
-              <h3><span>Maternal Health Risk Predictor</span></h3>
-              <p>Python, Streamlit, Machine Learning, HTML/CSS for UI design</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="project-box">
-            <div class="project-info">
-              <h3><span>Plant leaf disease detection using Deep Learning <span></h3>
-              <p>CNN, Python, Google Colab</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="project-box">
-            <div class="project-info">
-              <h3><span>Youtube Clone</span></h3>
-              <p>HTML, CSS, Bootsrap 5</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Repeat the above div for each project -->
+    <section id="background">
+      <h2>Background</h2>
+      <div class="timeline">
+        <div class="item"><div class="when">Current</div><div><div class="what">Technical Consultant</div><div class="where">HPE</div></div></div>
+        <div class="item"><div class="when">2023</div><div><div class="what">Machine Learning Intern</div><div class="where">Suvidha Mahila Foundation · maternal risk prediction and data analysis with Python and TensorFlow</div></div></div>
+        <div class="item"><div class="when">Expected</div><div><div class="what">M.Tech, Data Science &amp; AI</div></div></div>
+        <div class="item"><div class="when">2025</div><div><div class="what">B.Tech, Computer Science</div><div class="where">Amity University Noida</div></div></div>
+        <div class="item"><div class="when">2025</div><div><div class="what">NVIDIA Certified Associate</div><div class="where">AI Infrastructure &amp; Operations</div></div></div>
+        <div class="item"><div class="when">2024</div><div><div class="what">CCNA</div><div class="where">Introduction to Networks</div></div></div>
       </div>
-    </div>
-  </section>
-  <!-- PUBLICATIONS -->
-  <section class="project py-5" id="publication">
-    <div class="container">
+    </section>
 
-      <div class="col-lg-11 text-center mx-auto col-12">
-        <div class="col-lg-12 mx-auto">
-          <h2>My Publications</h2>
-          <div class="owl-carousel owl-theme">
-            <div class="item">
-              <div class="project-info">
-                <img src="images/publication.PNG" class="img-fluid" alt="project image">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>  
-    </div>   
-  </section>
-
-  <!-- FEATURES -->
-  <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Skills</h2>
-
-          <div class="timeline">
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span></span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>Technical Skills</span></h3>
-                <h3><small>Python</small></h3>
-                <h3><small>SQL</small></h3>
-                <h3><small>C</small></h3>
-                <h3><small>Machine Learning</small></h3>
-                <h3><small>Deep Neural Networks</small></h3>
-                <h3><small>HTML</small></h3>
-                <h3><small>CSS</small></h3>
-              </div>
-            </div>
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span></span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>Soft Skills</span></h3>
-                <h3><small>Leadership</small></h3>
-                <h3><small>Communication</small></h3>
-                <h3><small>Confidence</small></h3>
-                <h3><small>Time management</small></h3>
-                <h3><small>Brainstorming</small></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4 mobile-mt-2">Educations</h2>
-
-          <div class="timeline">
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span>2025</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>Amity University Noida</span></h3>
-                <small>B.Tech CSE</small>
-                <p>Current CGPA: 8.94
-                </p>
-              </div>
-            </div>
-
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span>2021</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>DAV Centenary Public School</span><small>12th CBSE</small></h3>
-                <p>Percentage: 88.6%, PCM</p>
-                <p>Extraordinary Achievements:
-                  2nd Runner up in 65TH National Sschool Games 2019-20 Table Soccer Girls U19</p>
-              </div>
-            </div>
-
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span>2019</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>DAV Centenary Public School</span><small>10th CBSE</small></h3>
-                <p>Percentage: 90.6%</p>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>I'm open to research collaborations and to conversations about applied ML work.</p>
+      <div class="links">
+        <a class="btn primary" href="mailto:rashichauhan67@gmail.com">rashichauhan67@gmail.com</a>
+        <a class="btn" href="https://linkedin.com/in/rashi-chauhan-67rc">LinkedIn</a>
+        <a class="btn" href="https://github.com/RashiChauhan67">GitHub</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <<section class="contact py-5" id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5 mr-lg-5 col-12">
-          <div class="contact-info d-flex flex-column py-4 px-lg-5">
-            <img src="images/undraw/undraw_contact_us_re_4qqt.svg" alt="Contact Us Illustration">
-            <div class="contact-info-item mb-4">
-              <h3 class="mb-3 text-white">Say Hi!</h3>
-              <p class="footer-text mb-2"><a href="tel:+918447991455"><img src="images/icons/icons8-call-50.png" alt="Phone Icon"> +91-8447991455</a></p>
-              <p class="mb-0"><img src="images/icons/icons8-email-50.png" alt="Email Icon"> <a href="mailto:rashichauhan67@gmail.com">rashichauhan67@gmail.com</a></p>
-            </div>
-        
-            <div class="social-links">
-              <h3 class="mb-3 text-white">Connect With Me</h3>
-              <ul class="list-unstyled d-flex">
-                <li class="mr-3"><a href="https://twitter.com/Rashichauhan___" data-toggle="tooltip" data-placement="left" title="X"><img src="images/icons/icons8-twitter-50.png" alt="Twitter Icon"></a></li>
-                <li class="mr-3"><a href="https://www.linkedin.com/in/rashi-chauhan-67rc/" data-toggle="tooltip" data-placement="left" title="LinkedIn"><img src="images/icons/icons8-linkedin-50.png" alt="LinkedIn Icon"></a></li>
-                <li class="mr-3"><a href="https://www.instagram.com/rashichauhan___/" data-toggle="tooltip" data-placement="left" title="Instagram"><img src="images/icons/icons8-instagram-50-2.png" alt="Instagram Icon"></a></li>
-              </ul>
-            </div>            
-          </div>
-        </div>
-        
-  
-        <div class="col-lg-6 col-12">
-          <div class="contact-form">
-            <h2 class="mb-4">Interested to work together? Let's talk</h2>
-            <form action="" method="get">
-              <div class="row">
-                <div class="col-lg-6 col-12 mb-3">
-                  <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
-                </div>
-  
-                <div class="col-lg-6 col-12 mb-3">
-                  <input type="email" class="form-control" name="email" placeholder="Email" id="email">
-                </div>
-  
-                <div class="col-12 mb-3">
-                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
-                </div>
-  
-                <div class="col-lg-5 col-12">
-                  <input type="submit" class="form-control submit-btn" value="Send Message">
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+  </div>
+</main>
 
-  <!-- FOOTER -->
-  <footer class="footer py-5">
-    <div class="container">
-      <div class="row">
+<footer>
+  <div class="wrap">© <span id="year">2026</span> Rashi Chauhan</div>
+</footer>
 
-        <div class="col-lg-12 col-12">
-          <p class="copyright-text text-center">Thank You ❤</p>
-          <p class="copyright-text text-center">Designed by <a rel="nofollow"
-              href="https://www.linkedin.com/in/rashi-chauhan-67rc/">Rashi</a></p>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/Headroom.js"></script>
-  <script src="js/jQuery.headroom.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/smoothscroll.js"></script>
-  <script src="js/custom.js"></script>
-
+<script>
+(function () {
+  var root = document.documentElement;
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+  } catch (e) {}
+  document.getElementById("theme").addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
 </body>
-
 </html>
